@@ -13,6 +13,13 @@ html {
 h1 {
 	padding: 2vw 0;
 }
+img {
+	max-width: 100%;
+}
+a {
+	text-decoration: none;
+	color: aliceblue;
+}
 .content {
 	padding: 100px 10vw 50px;
 	text-align: center;
@@ -39,16 +46,14 @@ h1 {
 	box-shadow: 0 1px 10px rgba(255,225,255,0.25);
 }
 .nav li {
-	float: right;
+	display: inline-block;
 	padding: 0 2vw;
 }
 .nav a {
 	display: block;
 	text-align: center;
 	padding: 20px 2vw;
-	text-decoration: none;
 	position: relative;
-	color: aliceblue;
 }
 .inactive::before {
 	content: "";
@@ -75,9 +80,6 @@ h1 {
 	left: 0;
 	background-color: aliceblue;
 	transform: scaleX(0.7);
-}
-img {
-	max-width: 100%;
 }
 
 /* ----------------- Projects ----------------- */
@@ -249,4 +251,72 @@ input[type=checkbox] {
 	-webkit-animation: float var(--float) linear infinite, sway var(--sway) ease-in-out infinite alternate;
 	-moz-animation: float var(--float) linear infinite, sway var(--sway) ease-in-out infinite alternate;
 	animation: float var(--float) linear infinite, sway var(--sway) ease-in-out infinite alternate;
+}
+
+/* -------------- Smaller screens -------------- */
+@media only screen and (max-width: 500px) {
+	.nav li {
+		display: inline;
+	}
+	.content {
+		padding: 10px 10vw;
+	}
+	.hamburger {
+		display: block;
+		height: 45px;
+		width: 55px;
+		padding-top: 20px;
+		padding-left: 20px;
+		cursor: pointer;
+	}
+	.hamburger > span {
+		display: block;
+		width: 35px;
+		height: 5px;
+		margin-bottom: 5px;
+		position: relative;
+		background: aliceblue;
+		border-radius: 3px;
+		z-index: 2;
+		transform-origin: 5px 0px;
+		transition: transform 0.5s cubic-bezier(0.75,0.25,0.01,1.0), opacity 0.5s ease;
+	}
+
+	.hamburger > span:first-child {
+		transform-origin: 0% 0%;
+	}
+
+	.hamburger > span:nth-last-child(2) {
+		transform-origin: 0% 100%;
+	}
+	.nav {
+		transform-origin: 0% 0%;
+		height: 100%;
+		padding-top: 45px;
+		transform: translate(-100%, 0);
+		transition: transform 0.5s cubic-bezier(0.75,0.25,0.01,1.0);
+		box-shadow: none;
+	}	
+	.inactive:hover::before, .active::before {
+		transform: scaleX(0.15);
+	}
+	#menu:checked ~ .hamburger > span:first-child {
+		transform: rotate(45deg) translate(4px, -4px);
+	}
+	#menu:checked ~ .hamburger > span:nth-last-child(2) {
+		opacity: 0;
+		transform: rotate(0deg) scale(0.2, 0.2);
+	}
+	#menu:checked ~ .hamburger span:last-child {
+		transform: rotate(-45deg) translate(0px, 2px);
+	}
+	#menu:checked ~ .nav {
+		display: block;
+		overflow: auto;
+		transform: none;
+		z-index: -1;
+	}
+	#menu:checked ~ .content {
+		display: none;
+	}
 }
