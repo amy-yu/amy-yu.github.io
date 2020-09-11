@@ -200,6 +200,51 @@ input[type=checkbox] {
 	filter: grayscale(0);
 }
 
+/* ------------------ Contact ------------------ */
+.icons {
+	padding-top: 2vw;
+}
+.icon-border {
+	display: inline;
+	padding: 2vw;
+}
+.icon {
+	display: inline-block;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	position: relative;
+	font-size: 25px;
+	border: 2px solid aliceblue;
+}
+.icon:before, .icon:after {
+	content: "";
+	position: absolute;
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+	transition: .3s;
+}
+.icon:before {
+	top: -3px;
+	left: 1px;
+	transform: scaleX(.75);
+	border-top: 4px solid #101010;
+	border-bottom: 4px solid #101010;
+}
+.icon:after {
+	bottom: 1px;
+	right: -3px;
+	transform: scaleY(.75);
+	border-left: 4px solid #101010;
+	border-right: 4px solid #101010;
+}
+.icon:hover:before{
+	transform: scaleX(0);
+}
+.icon:hover:after{
+	transform: scaleY(0);
+}
+
 /* ----------------- Scrollbar ----------------- */
 ::-webkit-scrollbar {
 	width: 10px;
