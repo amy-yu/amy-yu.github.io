@@ -46,6 +46,7 @@ a {
 	width: 100%;
 	z-index: 1;
 	box-shadow: 0 1px 10px rgba(255,225,255,0.25);
+	user-select: none;
 }
 .nav li {
 	display: inline-block;
@@ -203,6 +204,7 @@ input[type=checkbox] {
 /* ------------------ Contact ------------------ */
 .icons {
 	padding-top: 2vw;
+	user-select: none;
 }
 .icon-border {
 	display: inline;
@@ -238,10 +240,10 @@ input[type=checkbox] {
 	border-left: 4px solid #101010;
 	border-right: 4px solid #101010;
 }
-.icon:hover:before{
+.icon:hover:before {
 	transform: scaleX(0);
 }
-.icon:hover:after{
+.icon:hover:after {
 	transform: scaleY(0);
 }
 
